@@ -11,10 +11,11 @@
         <a-entity id= "rocket"
                   position = "0 1 0"
                   scale = "0.5 0.5 0.5"
-                 animation__upmotion="property: position; dir: alternate; elasticity: 0.1; dur: 3500;
-                                     easing: linear; loop: true;
-                                       to: 0 3.05 0;"
-                  particle-system="preset: rain"
+                  animation__upmotion="property: position; dir: alternate; elasticity: 0.1; dur: 3500;
+                  easing: linear; loop: true;
+                  to: 0 3.05 0;"
+                  particle-system="preset: rain; maxAge: 1; maxParticleCount: 1000;
+                                   velocityValue: 0 300 0"
                   >
         <a-entity id="text" position = "0 0 2"
                   scale="10 10 10"
@@ -27,7 +28,9 @@
                         animation__rumble="property: position; dir: alternate; elasticity: 0.1; dur: 100;
                                  easing: linear; loop: true;
                                    to: 0 0.0825 0;">
-                     <a-entity position="0 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" particle-system="color: #EF0000,#FFA500; maxAge: .300; type: 2"></a-entity>
+                     <a-entity position="0 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                               particle-system="color: #EF0000,#FFA500; 
+                               maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
                 <a-entity id="base">
                     <a-cylinder position="0 2.099 0"
                             radius="0.5"
@@ -99,7 +102,9 @@
                     ></a-sphere>
                 </a-entity>
                 <a-entity id="side_1">
-                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" particle-system="color: #EF0000,#FFA500; maxAge: .300; type: 2"></a-entity>
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                              particle-system="color: #EF0000,#FFA500; 
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
                     <a-cone position="1 0.7 0"
                             color="orange"
                             height="0.49"
@@ -135,7 +140,9 @@
 
                 <a-entity id="side_2"
                           rotation = "0 90 0">
-                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" particle-system="color: #EF0000,#FFA500; maxAge: .300; type: 2"></a-entity>
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5"
+                              particle-system="color: #EF0000,#FFA500; 
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
 
                     <a-cone position="1 0.7 0"
                             color="orange"
@@ -171,7 +178,9 @@
 
                 <a-entity id="side_3"
                           rotation="0 180 0">
-                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" particle-system="color: #EF0000,#FFA500; maxAge: .300; type: 2"></a-entity>
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                              particle-system="color: #EF0000,#FFA500;
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
                     <a-cone position="1 0.7 0"
                             color="orange"
                             height="0.49"
@@ -206,7 +215,9 @@
 
                 <a-entity id="side_4"
                           rotation="0 270 0">
-                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" particle-system="color: #EF0000,#FFA500; maxAge: .300; type: 2"></a-entity>
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                              particle-system="color: #EF0000,#FFA500;
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
                     <a-cone position="1 0.7 0"
                             color="orange"
                             height="0.49"
