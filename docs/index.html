@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+      <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style='margin : 0px; overflow: hidden;'>
+        <a-scene embedded arjs>
+      <a-marker preset="hiro">
+        <!-- scale and speed gathered from: https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html -->
+        <!-- Create origin for solar system model. Spawn Sun here. -->
+        <a-plane id="bottom" color="black" scale="1000 1000" rotation="90 0 0" position="0 -500 0" side="double"></a-plane>
+        <a-plane id="back" color="black" scale="1000 1000" rotation="0 0 0" position="0 0 -500" side="double"></a-plane>
+        <a-plane id="front" color="black" scale="1000 1000" rotation="0 0 0" position="0 0 500" side="double"></a-plane>
+        <a-plane id="left" color="black" scale="1000 1000" rotation="0 90 0" position="-500 0 0" side="double"></a-plane>
+        <a-plane id="right" color="black" scale="1000 1000" rotation="0 90 0" position="500 0 0" side="double"></a-plane>
+        <a-plane id="top" color="black" scale="1000 1000" rotation="90 0 0" position="0 500 0" side="double"></a-plane>
+        
+        <a-entity scale="0.1 0.1 0.1" position="0 2 0">
+            <a-sphere id="Sun" radius= 27.25 color="orange" side="double">  </a-sphere>
+                <!--THE SUN IS 1/2 THE  ACTUAL SCALE JUST SO IT IS EASIER TO SEE IN AR-->
+                <!--All planets positions are relative to the sun-->
+                <!-- All sizes are a ratio with respect to earth (earth is 1 unit in diameter) and 5 units is considered 1AU-->
+                <!-- all orbital period ratios are with respect to earths orbit of 5 seconds for revolution -->
+                <!--spawn mercury-->
+            <a-entity animation__orbit="property: rotation; dur: 1205; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="mercury" position="0 0 29.185" radius= 0.1915 color = "#CD853F" side="double"
+                              animation__rotation="property: rotation; dur: 1000; easing:linear; loop: true; to: 0 360 0;"> </a-sphere>
+                </a-entity>
+                <!--Spawn venus-->
+            <a-entity animation__orbit="property: rotation; dur: 3075; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="venus" position="0 0 30.865" radius= 0.4745 color="#FF8000" side="double"></a-sphere>
+                </a-entity>
+            <a-entity animation__orbit="property: rotation; dur: 5000; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="earth" position="0 0 32.25" radius=0.5 color="blue" side="double"></a-sphere>
+                </a-entity>
+            <a-entity animation__orbit="property: rotation; dur: 9400; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="mars" position="0 0 34.85" radius=0.266 color="red" side="double"></a-sphere>
+                </a-entity>
+            <a-entity animation__orbit="property: rotation; dur: 59500; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="jupiter" position="0 0 53.25" radius=5.605 color="brown" side="double"></a-sphere>
+                </a-entity>
+            <a-entity animation__orbit="property: rotation; dur: 147000; easing:linear; loop: true; to: 0 360 0">
+                <a-sphere id="saturn" position="0 0 75.15" radius=4.725 color= "tan" side="double"></a-sphere>
+                </a-entity>
+            <a-entity animation__orbit="property: rotation; dur: 418500; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="uranus" position="0 0 123.25" radius=2.005 color= "blue" side="double"></a-sphere>
+                </a-entity>
+            <a-entity animation__orbit="property: rotation; dur: 818500; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="neptune" position="0 0 177.5" radius=1.94 color="blue" side="double"></a-sphere>
+                </a-entity>
+            <a-entity animation__orbit="property: rotation; dur: 1239500; easing:linear; loop: true; to: 0 360 0">
+                    <a-sphere id="pluto" position="0 0 224.65" radius=0.093 color="grey" side="double"></a-sphere>
+                </a-entity>
+            </a-entity>
+        </a-marker>
+            <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
