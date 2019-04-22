@@ -7,12 +7,13 @@
   </head>
   <body style='margin : 0px; overflow: hidden;'>
         <a-scene embedded arjs>
-      <a-marker preset="hiro">
-          <a-assets>
+            <a-assets>
               <!-- acquired starry background from https://www.pexels.com/search/space/ 
                     specifically: https://www.pexels.com/photo/starry-sky-998641/ -->
             <img id="space" src="Images/space.jpg">
           </a-assets>
+      <a-marker preset="hiro">
+
         <!-- scale and speed gathered from: https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html -->
         <!-- Create origin for solar system model. Spawn Sun here. -->
         <a-plane id="bottom" src="#space" scale="1000 1000" rotation="90 0 0" position="0 -500 0" side="double"></a-plane>
