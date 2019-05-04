@@ -27,12 +27,13 @@
         <!-- scale and speed gathered from: https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html -->
         <!-- Create origin for solar system model. Spawn Sun here. -->
         <a-plane id="bottom" src="#space" scale="1000 1000" rotation="90 0 0" position="0 -500 0" side="double"></a-plane>
-        <a-plane id="back" src="#space"  scale="1000 1000" rotation="0 0 0" position="0 0 -500" side="double"></a-plane>
+        <!--
+          <a-plane id="back" src="#space"  scale="1000 1000" rotation="0 0 0" position="0 0 -500" side="double"></a-plane>
         <a-plane id="front" src="#space"  scale="1000 1000" rotation="0 0 0" position="0 0 500" side="double"></a-plane>
         <a-plane id="left" src="#space"   scale="1000 1000" rotation="0 90 0" position="-500 0 0" side="double"></a-plane>
         <a-plane id="right" src="#space"  scale="1000 1000" rotation="0 90 0" position="500 0 0" side="double"></a-plane>
         <a-plane id="top" src="#space" scale="1000 1000" rotation="90 0 0" position="0 500 0" side="double"></a-plane>
-        
+        -->
         <a-entity scale="0.025 0.025 0.025" position="0 2 0">
             <a-sphere id="Sun" src="#sun-surface" radius= 27.25 side="double">  </a-sphere>
             <!--note that the solar system orbits in an eliptical shape, but I dont know how to create an eliptical a-animation with the time constraints-->
