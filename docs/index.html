@@ -10,7 +10,17 @@
             <a-assets>
               <!-- acquired starry background from https://www.pexels.com/search/space/ 
                     specifically: https://www.pexels.com/photo/starry-sky-998641/ -->
-            <img id="space" src="Images/space.jpg">
+                    <img id="space" src="Images/space.jpg">
+                    <img id="sun-surface" src="Images/sun.jpg">
+                    <img id="mercury-surface" src="Images/mercury.jpg">
+                    <img id="venus-surface" src="Images/venus_atmosphere.jpg">
+                    <img id="earth-surface" src="Images/earth.jpg">
+                    <img id="mars-surface" src="Images/mars.jpg">
+                    <img id="jupiter-surface" src="Images/jupiter.jpg">
+                    <img id="saturn-surface" src="Images/saturn.jpg">
+                    <img id="saturn-ring-txt" src="Images/saturn_ring.png">
+                    <img id="uranus-surface" src="Images/uranus.jpg">
+                    <img id="neptune-surface" src="Images/neptune.jpg">
           </a-assets>
       <a-marker preset="hiro">
 
@@ -23,42 +33,97 @@
         <a-plane id="right" src="#space"  scale="1000 1000" rotation="0 90 0" position="500 0 0" side="double"></a-plane>
         <a-plane id="top" src="#space" scale="1000 1000" rotation="90 0 0" position="0 500 0" side="double"></a-plane>
         
-        <a-entity scale="0.1 0.1 0.1" position="0 2 0">
-            <a-sphere id="Sun" radius= 27.25 color="orange" side="double">  </a-sphere>
+        <a-entity scale="0.025 0.025 0.025" position="0 2 0">
+            <a-sphere id="Sun" src="#sun-surface" radius= 27.25 side="double">  </a-sphere>
+            <!--note that the solar system orbits in an eliptical shape, but I dont know how to create an eliptical a-animation with the time constraints-->
                 <!--THE SUN IS 1/2 THE  ACTUAL SCALE JUST SO IT IS EASIER TO SEE IN AR-->
                 <!--All planets positions are relative to the sun-->
                 <!-- All sizes are a ratio with respect to earth (earth is 1 unit in diameter) and 5 units is considered 1AU-->
                 <!-- all orbital period ratios are with respect to earths orbit of 5 seconds for revolution -->
+            <!-- rotation time scaling is a work in progress -->
                 <!--spawn mercury-->
             <a-entity animation__orbit="property: rotation; dur: 1205; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="mercury" position="0 0 29.185" radius= 0.1915 color = "#CD853F" side="double"
-                              animation__rotation="property: rotation; dur: 1000; easing:linear; loop: true; to: 0 360 0;"> </a-sphere>
+                <a-entity position="0 0 29.185" rotation="0 0 0.034" >
+                    <a-sphere id="mercury" src="#mercury-surface" radius= 0.1915 side="double"
+                              animation__rotation="property: rotation; dur: 235200; easing:linear; loop: true; to: 0 360 0;"> </a-sphere>
+                  </a-entity>
                 </a-entity>
+            
                 <!--Spawn venus-->
             <a-entity animation__orbit="property: rotation; dur: 3075; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="venus" position="0 0 30.865" radius= 0.4745 color="#FF8000" side="double"></a-sphere>
+                <a-entity position="0 0 30.865" rotation="0 0 177.4">
+                    <a-sphere id="venus" src="#venus-surface" radius= 0.4745 side="double"
+                              animation__rotation="property: rotation; dur: 976000; easing:linear; loop: true; to: 0 -360 0;"
+                      ></a-sphere>
+                  </a-entity>
                 </a-entity>
+            
             <a-entity animation__orbit="property: rotation; dur: 5000; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="earth" position="0 0 32.25" radius=0.5 color="blue" side="double"></a-sphere>
+                <a-entity position="0 0 32.25" rotation="0 0 23.4" >
+                    <a-sphere id="earth" src="#earth-surface" radius=0.5 side="double"
+                              animation__rotation="property: rotation; dur: 500; easing:linear; loop: true; to: 0 360 23.4;"></a-sphere>
                 </a-entity>
+              </a-entity>
+            
             <a-entity animation__orbit="property: rotation; dur: 9400; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="mars" position="0 0 34.85" radius=0.266 color="red" side="double"></a-sphere>
+                <a-entity position="0 0 34.85" rotation="0 0 25.2">
+                    <a-sphere id="mars" src="#mars-surface" radius=0.266 side="double"
+                              animation__rotation="property: rotation; dur: 550; easing:linear; loop: true; to: 0 360 0;"></a-sphere>
+                  </a-entity>
                 </a-entity>
+            
             <a-entity animation__orbit="property: rotation; dur: 59500; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="jupiter" position="0 0 53.25" radius=5.605 color="brown" side="double"></a-sphere>
+                <a-entity position="0 0 53.25" rotation="0 0 3.1" >
+                    <a-sphere id="jupiter" src="#jupiter-surface" radius=5.605  side="double"
+                              animation__rotation="property: rotation; dur: 1660; easing:linear; loop: true; to: 0 360 0;"></a-sphere>
+                  </a-entity>
                 </a-entity>
+            
             <a-entity animation__orbit="property: rotation; dur: 147000; easing:linear; loop: true; to: 0 360 0">
-                <a-sphere id="saturn" position="0 0 75.15" radius=4.725 color= "tan" side="double"></a-sphere>
+                <a-entity position="0 0 75.15" rotation="0 0 26.7">
+                    <a-sphere id="saturn" src="#saturn-surface" position="0 0 0" radius=4.725 side="double"
+                              animation__rotation="property: rotation; dur: 1780; easing:linear; loop: true; from: 0 0 0; to: 0 360 0;">
+                  <!-- couldn't get texture to wrap a ring properly, so rings are manually created -->
+                  <a-ring color="#404040" rotation=" 90 0 0" radius-inner = "5.25" radius-outer="5.35" side="double"></a-ring>
+                  <a-ring color="#404040" rotation=" 90 0 0" radius-inner = "5.37" radius-outer="5.57" side="double"></a-ring>
+                  <a-ring color="#404040" rotation=" 90 0 0" radius-inner = "5.6" radius-outer="5.75" side="double"></a-ring>
+                  <a-ring color="#404040" rotation=" 90 0 0" radius-inner = "5.76" radius-outer="6" side="double"></a-ring>
+                        
+                  <a-ring color="#AC9C9C" rotation=" 90 0 0" radius-inner = "6.05" radius-outer="6.25" side="double"></a-ring>
+                  <a-ring color="#BC8F8F" rotation=" 90 0 0" radius-inner = "6.26" radius-outer="6.5" side="double"></a-ring>
+                  <a-ring color="#FFF8DC" rotation=" 90 0 0" radius-inner = "6.51" radius-outer="7" side="double"></a-ring>
+                  <a-ring color= "#000000" rotation=" 90 0 0" radius-inner = "7.1" radius-outer="7.125" side="double"></a-ring>
+                  <a-ring color="#908585" rotation=" 90 0 0" radius-inner = "7.126" radius-outer="7.326" side="double"></a-ring>
+                  <a-ring color="#908585" rotation=" 90 0 0" radius-inner = "7.337" radius-outer="7.428" side="double"></a-ring>
+                  <a-ring color="#908585" rotation=" 90 0 0" radius-inner = "7.43" radius-outer="7.630" side="double"></a-ring>
+                  <a-ring color="#908585" rotation=" 90 0 0" radius-inner = "7.44" radius-outer="7.65" side="double"></a-ring>
+                  <a-ring color="#908585" rotation=" 90 0 0" radius-inner = "7.68" radius-outer="8" side="double"></a-ring>
+                      
+                    </a-sphere>
                 </a-entity>
+              </a-entity>
+            
             <a-entity animation__orbit="property: rotation; dur: 418500; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="uranus" position="0 0 123.25" radius=2.005 color= "blue" side="double"></a-sphere>
+                <a-entity position="0 0 123.25" rotation="0 0 97.8">
+                    <a-sphere id="uranus" src="#uranus-surface" radius=2.005  side="double"
+                              animation__rotation="property: rotation; dur: 2880; easing:linear; loop: true; to: 0 -360 0;"></a-sphere>
+                  </a-entity>
                 </a-entity>
+            
             <a-entity animation__orbit="property: rotation; dur: 818500; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="neptune" position="0 0 177.5" radius=1.94 color="blue" side="double"></a-sphere>
+                <a-entity position="0 0 177.5" rotation="0 0 28.3">
+                    <a-sphere id="neptune" src="#neptune-surface" radius=1.94  side="double"
+                              animation__rotation="property: rotation; dur: 2692; easing:linear; loop: true; to: 0 360 0;"></a-sphere>
+                  </a-entity>
                 </a-entity>
+            
             <a-entity animation__orbit="property: rotation; dur: 1239500; easing:linear; loop: true; to: 0 360 0">
-                    <a-sphere id="pluto" position="0 0 224.65" radius=0.093 color="grey" side="double"></a-sphere>
+                <a-entity position="0 0 224.65" rotation="0 0 122.5">
+                    <a-sphere id="pluto" radius=0.093 color="grey" side="double"
+                              animation__rotation="property: rotation; dur: 25640; easing:linear; loop: true; to: 0 360 0;"></a-sphere>
+                  </a-entity>
                 </a-entity>
+            
             </a-entity>
         </a-marker>
             <a-entity camera></a-entity>
