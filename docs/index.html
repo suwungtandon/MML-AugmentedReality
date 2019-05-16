@@ -8,9 +8,10 @@
   <body style='margin : 0px; overflow: hidden;'>
         <a-scene embedded arjs>
             <a-assets>
-              <!-- acquired starry background from https://www.pexels.com/search/space/ 
+              <!-- acquired space background from https://www.pexels.com/search/space/ 
                     specifically: https://www.pexels.com/photo/starry-sky-998641/ -->
-                    <img id="space" src="Images/space.jpg">
+                    <!--<img id="space" src="Images/space.jpg">-->
+                <!-- recieved free planet textures from https://www.solarsystemscope.com/textures/-->
                     <img id="sun-surface" src="Images/sun.jpg">
                     <img id="mercury-surface" src="Images/mercury.jpg">
                     <img id="venus-surface" src="Images/venus_atmosphere.jpg">
@@ -22,7 +23,7 @@
                     <img id="uranus-surface" src="Images/uranus.jpg">
                     <img id="neptune-surface" src="Images/neptune.jpg">
           </a-assets>
-      <a-marker preset="hiro">
+      <a-marker id="SolarSystem" type='pattern' url='Markers/pattern-star.patt'>
 
         <!-- scale and speed gathered from: https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html -->
         <!-- Create origin for solar system model. Spawn Sun here. -->
@@ -128,6 +129,469 @@
             
             </a-entity>
         </a-marker>
+      <a-marker id="LifeCycle" type='pattern' url='Markers/pattern-diamond.patt'>
+            <!-- all pictures for plant cycle are free from Pixabay-->
+        <!-- add src/color to material-->
+        <a-entity id="oak" position="-3 0 0" scale="0.75 0.75 0.75">
+            <a-box src="Images/acorn.jpg" position="0 1 0" side ="double">
+            </a-box>
+            <a-box src="Images/oakSappling.jpg" position="-2.2 3.5 0" side="double">
+            </a-box>
+            <a-box src="Images/oak-tree.png" position="2 3.5 0" side="double">
+            </a-box>
+            <a-entity id = "arrowleft" rotation="90 180 0" position="-1 2.25 0"
+                      geometry="primitive:cylinder;
+                                theta-length: 72;
+                                radius:1.25;
+                                height:0.5;
+                                open-ended: true"
+                      material="shader:standard;
+                                side:double;">
+                <a-entity>
+                <a-entity rotation="0 0 0" position="-0.2 0 -0.3"
+                      geometry="primitive:cylinder;
+                                theta-length: 60;
+                                radius:1.25;
+                                height:0.5;
+                                open-ended: true"
+                      material="shader:standard;
+                                side:double;">
+                </a-entity>
+                <a-entity id="arrowtip" scale="0.75 0.75 0.75"
+                          position="0.8 0 0"
+                          rotation="0 -10 0">
+                    <a-plane rotation="0 55 0" side="double"></a-plane>
+                    <a-plane rotation="0 -55 0" position="0.57 0 0" side="double"></a-plane>
+                    <a-plane position="0.3 0 0.4" width="1.14" side="double"></a-plane>
+                </a-entity>
+                <a-plane rotation="0 -55 0"
+                         scale="0.39 0.5 0.5"
+                         position="-0.095 0.02 1.106"
+                         side="double" ></a-plane>
+                </a-entity>
+            </a-entity>
+             
+            <a-entity position="3.5 3.5 0" rotation="0 0 90">
+                <a-entity id = "arrowright" rotation="90 180 0" position="-1 2.25 0"
+                          geometry="primitive:cylinder;
+                                    theta-length: 72;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    <a-entity>
+                    <a-entity rotation="0 0 0" position="-0.2 0 -0.3"
+                          geometry="primitive:cylinder;
+                                    theta-length: 60;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    </a-entity>
+                    <a-entity id="arrowtip" scale="0.75 0.75 0.75"
+                              position="0.8 0 0"
+                              rotation="0 -10 0">
+                        <a-plane rotation="0 55 0" side="double"></a-plane>
+                        <a-plane rotation="0 -55 0" position="0.57 0 0" side="double"></a-plane>
+                        <a-plane position="0.3 0 0.4" width="1.14" side="double"></a-plane>
+                    </a-entity>
+                    <a-plane rotation="0 -55 0"
+                             scale="0.39 0.5 0.5"
+                             position="-0.095 0.02 1.106"
+                             side="double" ></a-plane>
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+            <a-entity position="-2.5 5 0" rotation="0 0 220">
+                <a-entity id = "arrowtop" rotation="90 180 0" position="-1 2.25 0"
+                          geometry="primitive:cylinder;
+                                    theta-length: 72;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    <a-entity>
+                    <a-entity rotation="0 0 0" position="-0.2 0 -0.3"
+                          geometry="primitive:cylinder;
+                                    theta-length: 60;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    </a-entity>
+                    <a-entity id="arrowtip" scale="0.75 0.75 0.75"
+                              position="0.8 0 0"
+                              rotation="0 -10 0">
+                        <a-plane rotation="0 55 0" side="double"></a-plane>
+                        <a-plane rotation="0 -55 0" position="0.57 0 0" side="double"></a-plane>
+                        <a-plane position="0.3 0 0.4" width="1.14" side="double"></a-plane>
+                    </a-entity>
+                    <a-plane rotation="0 -55 0"
+                             scale="0.39 0.5 0.5"
+                             position="-0.095 0.02 1.106"
+                             side="double" ></a-plane>
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+            
+        </a-entity>
+        
+        <a-entity id="pumpkin" position="3 0 0" scale="0.75 0.75 0.75">
+            <a-box src="Images/pumpkin-seed.jpg" position="0 1 0" side ="double">
+            </a-box>
+            <a-box src="Images/pumpkin-sappling.jpg" position="-2.2 3.5 0" side="double">
+            </a-box>
+            <a-box src="Images/pumpkin.jpg" position="2 3.5 0" side="double">
+            </a-box>
+            <a-entity id = "arrowleft" rotation="90 180 0" position="-1 2.25 0"
+                      geometry="primitive:cylinder;
+                                theta-length: 72;
+                                radius:1.25;
+                                height:0.5;
+                                open-ended: true"
+                      material="shader:standard;
+                                side:double;">
+                <a-entity>
+                <a-entity rotation="0 0 0" position="-0.2 0 -0.3"
+                      geometry="primitive:cylinder;
+                                theta-length: 60;
+                                radius:1.25;
+                                height:0.5;
+                                open-ended: true"
+                      material="shader:standard;
+                                side:double;">
+                </a-entity>
+                <a-entity id="arrowtip" scale="0.75 0.75 0.75"
+                          position="0.8 0 0"
+                          rotation="0 -10 0">
+                    <a-plane rotation="0 55 0" side="double"></a-plane>
+                    <a-plane rotation="0 -55 0" position="0.57 0 0" side="double"></a-plane>
+                    <a-plane position="0.3 0 0.4" width="1.14" side="double"></a-plane>
+                </a-entity>
+                <a-plane rotation="0 -55 0"
+                         scale="0.39 0.5 0.5"
+                         position="-0.095 0.02 1.106"
+                         side="double" ></a-plane>
+                </a-entity>
+            </a-entity>
+             
+            <a-entity position="3.5 3.5 0" rotation="0 0 90">
+                <a-entity id = "arrowright" rotation="90 180 0" position="-1 2.25 0"
+                          geometry="primitive:cylinder;
+                                    theta-length: 72;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    <a-entity>
+                    <a-entity rotation="0 0 0" position="-0.2 0 -0.3"
+                          geometry="primitive:cylinder;
+                                    theta-length: 60;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    </a-entity>
+                    <a-entity id="arrowtip" scale="0.75 0.75 0.75"
+                              position="0.8 0 0"
+                              rotation="0 -10 0">
+                        <a-plane rotation="0 55 0" side="double"></a-plane>
+                        <a-plane rotation="0 -55 0" position="0.57 0 0" side="double"></a-plane>
+                        <a-plane position="0.3 0 0.4" width="1.14" side="double"></a-plane>
+                    </a-entity>
+                    <a-plane rotation="0 -55 0"
+                             scale="0.39 0.5 0.5"
+                             position="-0.095 0.02 1.106"
+                             side="double" ></a-plane>
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+            <a-entity position="-2.5 5 0" rotation="0 0 220">
+                <a-entity id = "arrowtop" rotation="90 180 0" position="-1 2.25 0"
+                          geometry="primitive:cylinder;
+                                    theta-length: 72;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    <a-entity>
+                    <a-entity rotation="0 0 0" position="-0.2 0 -0.3"
+                          geometry="primitive:cylinder;
+                                    theta-length: 60;
+                                    radius:1.25;
+                                    height:0.5;
+                                    open-ended: true"
+                          material="shader:standard;
+                                    side:double;">
+                    </a-entity>
+                    <a-entity id="arrowtip" scale="0.75 0.75 0.75"
+                              position="0.8 0 0"
+                              rotation="0 -10 0">
+                        <a-plane rotation="0 55 0" side="double"></a-plane>
+                        <a-plane rotation="0 -55 0" position="0.57 0 0" side="double"></a-plane>
+                        <a-plane position="0.3 0 0.4" width="1.14" side="double"></a-plane>
+                    </a-entity>
+                    <a-plane rotation="0 -55 0"
+                             scale="0.39 0.5 0.5"
+                             position="-0.095 0.02 1.106"
+                             side="double" ></a-plane>
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+            
+        </a-entity>
+    </a-marker>
+      <a-marker id="Rocket" type='pattern' url='Markers/pattern-up.patt'>
+                    <a-entity id= "rocket"
+                  position = "0 1 0"
+                  scale = "0.5 0.5 0.5"
+                  animation__upmotion="property: position; dir: alternate; elasticity: 0.1; dur: 3500;
+                  easing: linear; loop: true;
+                  to: 0 3.05 0;"
+                  particle-system="preset: rain; maxAge: 1; maxParticleCount: 500;
+                                   velocityValue: 0 300 0"
+                  >
+            
+            <a-entity id="model"
+                      animation__spin="property: rotation; ; dur: 13050;
+                                 easing: linear; loop: true;
+                                   to: 0 360 0;"
+                        >
+                <!--    goes before the " > " directly above this comment
+                        animation__rumble="property: position; dir: alternate; elasticity: 0.1; dur: 100;
+                                 easing: linear; loop: true;
+                                   to: 0 0.0825 0;"> -->
+                     <a-entity position="0 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                               particle-system="color: #EF0000,#FFA500; 
+                               maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
+                <a-entity id="base">
+                    <a-cylinder position="0 2.099 0"
+                            radius="0.5"
+                            height="2.3"
+                            color="gray"
+                            side = "double">
+                    </a-cylinder>
+                    <a-cone position="0 0.72 0"
+                            height="0.44"
+                            color="orange"
+                            radius-top = "0.5"
+                            radius-bottom = "0.55"
+                            side = "double">
+                    </a-cone>
+                    <a-cone position="0 3.615 0"
+                            height="0.715"
+                            color="orange"
+                            radius-top = "0.45"
+                            radius-bottom = "0.5"
+                            side = "double">
+                    </a-cone>
+                    <a-cylinder position="0 4.725 0"
+                            radius="0.45"
+                            height="1.5"
+                            color="gray"
+                            side = "double">
+                    </a-cylinder>
+                    <a-cone position="0 5.725 0"
+                            height="0.5"
+                            color="orange"
+                            radius-top = "0.35"
+                            radius-bottom = "0.45"
+                            side = "double">
+                    </a-cone>
+                    <a-cylinder position="0 6.35 0"
+                            radius="0.35"
+                            height="0.75"
+                            color="gray"
+                            side = "double">
+                    </a-cylinder>
+                    <a-cone position="0 6.975 0"
+                            height="0.5"
+                            color="orange"
+                            radius-top = "0.09"
+                            radius-bottom = "0.35"
+                            side = "double">
+                    </a-cone>
+                    <a-cylinder position="0 7.6 0"
+                            radius="0.09"
+                            height="0.75"
+                            color="gray"
+                            side = "double">
+                    </a-cylinder>
+                    <a-sphere radius = "0.09"
+                              position="0 7.98 0"
+                              color="white"
+                              side = "double"
+                    ></a-sphere>
+                    <a-cylinder position="0 8.42 0"
+                            radius="0.05"
+                            height="0.75"
+                            color="gray"
+                            side = "double">
+                    </a-cylinder>
+                    <a-sphere radius = "0.05"
+                              position="0 8.8 0"
+                              color="white"
+                              side = "double"
+                    ></a-sphere>
+                </a-entity>
+                <a-entity id="side_1">
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                              particle-system="color: #EF0000,#FFA500; 
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
+                    <a-cone position="1 0.7 0"
+                            color="orange"
+                            height="0.49"
+                            radius-top = "0.35"
+                            radius-bottom="0.4"
+                            side = "double"
+                            >
+
+                        <a-cone position="0 1 0"
+                                color="gray"
+                                height="1.5"
+                                radius-top = "0.275"
+                                radius-bottom="0.35"
+                                side = "double">
+                        </a-cone>
+                        <a-cone position="0 2. 0"
+                                color="white"
+                                height="0.5"
+                                radius-top = "0.03"
+                                radius-bottom="0.275"
+                                side = "double">
+                        </a-cone>
+                        <a-sphere position = "0 2.245 0"
+                                  radius = 0.03
+                                  side = "double"></a-sphere>
+                     </a-cone>
+                        <a-plane position = "0.6 1.25 0"
+                                 width = ".25"
+                                 side = "double"
+                                 color= "gray"
+                                 ></a-plane>
+                </a-entity>
+
+                <a-entity id="side_2"
+                          rotation = "0 90 0">
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5"
+                              particle-system="color: #EF0000,#FFA500; 
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
+
+                    <a-cone position="1 0.7 0"
+                            color="orange"
+                            height="0.49"
+                            radius-top = "0.35"
+                            radius-bottom="0.4"
+                            side = "double">
+
+                        <a-cone position="0 1 0"
+                                color="gray"
+                                height="1.5"
+                                radius-top = "0.275"
+                                radius-bottom="0.35"
+                                side = "double">
+                        </a-cone>
+                        <a-cone position="0 2. 0"
+                                color="white"
+                                height="0.5"
+                                radius-top = "0.03"
+                                radius-bottom="0.275"
+                                side = "double">
+                        </a-cone>
+                        <a-sphere position = "0 2.245 0"
+                                  radius = 0.03
+                                  side = "double"></a-sphere>
+                     </a-cone>
+                    <a-plane position = "0.6 1.25 0"
+                             width = ".25"
+                             side = "double"
+                             color= "gray"
+                             ></a-plane>
+                </a-entity>
+
+                <a-entity id="side_3"
+                          rotation="0 180 0">
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                              particle-system="color: #EF0000,#FFA500;
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
+                    <a-cone position="1 0.7 0"
+                            color="orange"
+                            height="0.49"
+                            radius-top = "0.35"
+                            radius-bottom="0.4"
+                            side = "double">
+
+                        <a-cone position="0 1 0"
+                                color="gray"
+                                height="1.5"
+                                radius-top = "0.275"
+                                radius-bottom="0.35"
+                                side = "double">
+                        </a-cone>
+                        <a-cone position="0 2. 0"
+                                color="white"
+                                height="0.5"
+                                radius-top = "0.03"
+                                radius-bottom="0.275"
+                                side = "double">
+                        </a-cone>
+                        <a-sphere position = "0 2.245 0"
+                                  radius = 0.03
+                                  side = "double"></a-sphere>
+                     </a-cone>
+                        <a-plane position = "0.6 1.25 0"
+                                 width = ".25"
+                                 side = "double"
+                                 color= "gray"
+                                 ></a-plane>
+                </a-entity>
+
+                <a-entity id="side_4"
+                          rotation="0 270 0">
+                    <a-entity position="1 0 0" rotation = "180 0 0" scale="0.5 0.5 0.5" 
+                              particle-system="color: #EF0000,#FFA500;
+                              maxAge: .100; type: 2; maxParticleCount: 100"></a-entity>
+                    <a-cone position="1 0.7 0"
+                            color="orange"
+                            height="0.49"
+                            radius-top = "0.35"
+                            radius-bottom="0.4"
+                            side = "double">
+
+                        <a-cone position="0 1 0"
+                                color="gray"
+                                height="1.5"
+                                radius-top = "0.275"
+                                radius-bottom="0.35"
+                                side = "double">
+                        </a-cone>
+                        <a-cone position="0 2. 0"
+                                color="white"
+                                height="0.5"
+                                radius-top = "0.03"
+                                radius-bottom="0.275"
+                                side = "double">
+                        </a-cone>
+                        <a-sphere position = "0 2.245 0"
+                                  radius = 0.03
+                                  side = "double"></a-sphere>
+                     </a-cone>
+                        <a-plane position = "0.6 1.25 0"
+                                 width = ".25"
+                                 side = "double"
+                                 color= "gray"
+                                 ></a-plane>
+                </a-entity>
+            </a-entity>
+        </a-entity>
+            </a-marker>
             <a-entity camera></a-entity>
     </a-scene>
   </body>
